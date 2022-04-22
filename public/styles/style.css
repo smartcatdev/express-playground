@@ -1,0 +1,17 @@
+body {
+    background: #121212;
+    color: #fff;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hero {
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #f9f9f9;
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 30px;
+    background-color: #302838;
+}
