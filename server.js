@@ -27,13 +27,24 @@ app.get('/api/tweets', async (req, res) => {
 
 app.post('/api/tweets', async (req, res) => {
     const db = await connectToDB()
-    const collection = await db.collection('tweets')
+    const collection = await db.collection('tweets')    
     const text = req.body.text
     const tweet = await collection.insertOne({text})
     res.send({tweet})
 })
 
+app.put('/api/tweets/:tweetId', async (req, res) => {
+    const tweetId = req.params.tweetId
+    const text = req.body.text
+    
+    const db = await connectToDB()
+    const collection = await db.collection('tweets')
+    
+    const tweet = await collection.updateOne({ _id: tweetId }, { $set: {text} })
+    res.send({tweet})
+})
+
 
 app.listen(port, () => {
-    console.log('loaded')
+    console.log('server loaded! Go to: http://localhost:' + port)
 })
